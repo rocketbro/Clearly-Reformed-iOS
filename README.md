@@ -31,4 +31,4 @@ Clearly Reformed and Christ Covenant Church hosted the inaugural Coram Deo Pasto
 Clearly Reformed is a brand-new ministry. We are grateful for your interest in what we are all about. Our hope is that we might be able to serve the cause of Christ in the world, and Clearly Reformed might be a blessing to you and your church.
 
 ## App Privacy
-The Clearly Reformed iOS app does not collect any user data. Essentially, it is a simple wrapper around the clearlyreformed.org website. There is no user log in.
+The Clearly Reformed iOS app does not collect any user data. Essentially, it is a simple wrapper around the clearlyreformed.org website.
