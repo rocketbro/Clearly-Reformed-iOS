@@ -24,7 +24,9 @@ On the Clearly Reformed Podcast Kevin reads from a collection of original articl
 You may have seen the first video we released last year on divine simplicity. We have more videos like that pilot episode in the works. As we have funding, we would love to see dozens of videos explaining important theological topics in a short, professional, attractive format.
 
 ### Coram Deo Pastors Conference
-Clearly Reformed and Christ Covenant Church are hosting the inaugural Coram Deo Pastors Conference in March 2024. The aim of the conference is simple: to strengthen pastors. We look forward to filling the sanctuary with close to 2,000 pastors March 12-14, 2024 at Christ Covenant Church in Matthews, North Carolina. Registration information and other details can be found here.
+Clearly Reformed and Christ Covenant Church hosted the inaugural Coram Deo Pastors Conference in March 2024. The aim of the conference was simple: to strengthen pastors. The Lord filled the sanctuary with close to 2,000 pastors March 12-14, 2024 at Christ Covenant Church in Matthews, North Carolina. We look forward to the workshop planned for 2025.
+
+<br> 
 
 Clearly Reformed is a brand-new ministry. We are grateful for your interest in what we are all about. Our hope is that we might be able to serve the cause of Christ in the world, and Clearly Reformed might be a blessing to you and your church.
 
