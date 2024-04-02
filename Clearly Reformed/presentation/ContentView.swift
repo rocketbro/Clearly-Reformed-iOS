@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct ContentView: View {
-    @StateObject var nav = Navigation()
+    @State private var nav = Navigation()
+    @Environment(NetworkMonitor.self) private var networkMonitor
     @State private var webView: WKWebViewRepresentable? = nil
     @State private var loadComplete = false
     @State private var presentToast = false
@@ -26,13 +27,7 @@ struct ContentView: View {
             CRSplash()
                 .statusBarHidden(hideStatusBar)
                 .onAppear {
-                    webView = WKWebViewRepresentable(
-                        url: URL(string: "https://clearlyreformed.org")!,
-                        loadComplete: $loadComplete,
-                        presentToast: $presentToast,
-                        toastMessage: $toastMessage
-                    )
-                    
+                    loadWebViewContent()
                     DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
                         withAnimation(.easeOut(duration: 0.5)) {
                             nav.route = .webpage
@@ -56,25 +51,65 @@ struct ContentView: View {
                 }
                 
                 
-//                if !loadComplete {
-//                    withAnimation {
-//                        VStack(spacing: 8) {
-//                            ProgressView()
-//                                .foregroundColor(Color.gray)
-//                            Text("Loading...")
-//                                .foregroundStyle(Color.gray)
-//                                .font(.caption)
-//                        }
-//                        .zIndex(2)
-//                    }
-//                }
+                /* This code causes issues on some devices; the loadComplete variable doesn't
+                 seem to consistently publish its current value.
+                 
+                 if !loadComplete {
+                 withAnimation {
+                 VStack(spacing: 8) {
+                 ProgressView()
+                 .foregroundColor(Color.gray)
+                 Text("Loading...")
+                 .foregroundStyle(Color.gray)
+                 .font(.caption)
+                 }
+                 .zIndex(2)
+                 }
+                 }
+                 
+                 */
                 
                 VStack {
                     Spacer()
                     ToastView(isPresented: $presentToast, message: $toastMessage)
                 }.zIndex(3)
+                
+                
+                if !networkMonitor.isConnected {
+                    withAnimation {
+                        ZStack {
+                            primaryGreen.ignoresSafeArea()
+                            VStack {
+                                Image(systemName: "wifi.exclamationmark")
+                                    .resizable()
+                                    .frame(width: 50, height: 50)
+                                    .padding()
+                                Text("Cannot connect to the internet.\nPlease check your connection.")
+                            }
+                            .foregroundColor(.white)
+                            .padding(.bottom, 100)
+                        }
+                        .transition(.opacity)
+                        .zIndex(4)
+                        .onChange(of: networkMonitor.isConnected) {
+//                            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+//                                loadWebViewContent()
+//                            }
+                            loadWebViewContent()
+                        }
+                    }
+                }
             }
         }
+    }
+    
+    func loadWebViewContent() {
+        webView = WKWebViewRepresentable(
+            url: URL(string: "https://clearlyreformed.org")!,
+            loadComplete: $loadComplete,
+            presentToast: $presentToast,
+            toastMessage: $toastMessage
+        )
     }
 }
 

@@ -9,9 +9,13 @@ import SwiftUI
 
 @main
 struct ClearlyReformedApp: App {
+    @State private var networkMonitor = NetworkMonitor()
+    
     var body: some Scene {
         WindowGroup {
-            ContentView().preferredColorScheme(.light)
+            ContentView()
+                .preferredColorScheme(.light)
+                .environment(networkMonitor)
         }
     }
 }

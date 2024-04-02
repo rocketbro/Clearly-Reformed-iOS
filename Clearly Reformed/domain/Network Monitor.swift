@@ -5,13 +5,13 @@
 //  Created by Asher Pope on 3/6/24.
 //
 
-import Foundation
+import SwiftUI
 import Network
 
-class NetworkMonitor: ObservableObject {
+@Observable class NetworkMonitor {
     private let networkMonitor = NWPathMonitor()
     private let workerQueue = DispatchQueue(label: "Monitor")
-    @Published var isConnected = false
+    var isConnected = false
 
     init() {
         networkMonitor.pathUpdateHandler = { path in
